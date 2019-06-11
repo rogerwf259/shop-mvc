@@ -1,0 +1,30 @@
+<%- include('../includes/head.ejs') %>
+<!--<link rel="stylesheet" href="/css/product.css">-->
+<body>
+    <%- include('../includes/navigation.ejs') %>
+    <main class="ui container">
+        <form class="ui form" action="/admin/<% if (editing) { %>edit-product<% } else { %>add-product<% } %>" method="POST">
+            <div class="field">
+                <label for="title">Title</label>
+                <input type="text" name="title" placeholder="Product Name" value="<% if (editing) { %><%= product.title %><% } %>" />
+                <div class="field">
+                    <label for="imageUrl">Image URL</label>
+                    <input type="text" name="imageUrl" placeholder="Product Image" value="<% if (editing) { %><%= product.image %><% } %>" />
+                </div>
+                <div class="field">
+                    <label for="description">Description</label>
+                    <textarea type="text" name="description" placeholder="Product Desciption"><% if (editing) { %><%= product.description %><% } %></textarea>
+                </div>
+                <div class="field">
+                    <label for="price">Price</label>
+                    <input type="text" name="price" placeholder="Product Price" value="<% if (editing) { %><%= product.price %><% } %>" />
+                </div>
+                <% if (editing) { %>
+                    <input type="hidden" value="<%= product.id %>" name="productId">
+                <% } %>
+            </div>
+            <button class="ui inverted primary button" type="submit"><% if (editing) { %>Update Product<% } else {%> Add Product<% } %></button>
+        </form>
+    </main>
+</body>
+</html>

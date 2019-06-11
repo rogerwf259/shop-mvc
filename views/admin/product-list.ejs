@@ -1,0 +1,41 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/product.css">
+<body>
+        <%- include('../includes/navigation.ejs') %>
+    <main class="ui container">
+        <div class="ui equal width grid">
+            <% if (prods.length > 0) { %>
+                <% for (let product of prods) { %>
+                    <div class="ui four wide column">
+                        <div class="ui card">
+                            <div class="image">
+                                <img src="<%= product.image %>"/>
+                            </div>
+                            <article class="content">
+                                <header class="header">
+                                    <h1><%= product.title %></h1>
+                                </header>
+                                <div class="meta">
+                                        <span><%= product.price %></span>
+                                </div>
+                                <div class="description">
+                                    <%= product.description %>                        
+                                </div>
+                            </article>
+                            <div class="extra content">
+                                <form action="/admin/delete-product" method="POST">
+                                    <input type="hidden" value="<%= product.id %>" name="productId">
+                                    <a class="ui inverted violet button" href="/admin/edit-product/<%= product.id %>?edit=true">Edit</a>
+                                    <button type="submit" class="ui inverted violet button">Delete</button>
+                                </form>
+                            </div> 
+                        </div>
+                    </div>
+                <% } %>
+            <% } else { %>
+                <h1>No Products found</h1>
+            <% } %>
+        </div>
+    </main>
+</body>
+</html>

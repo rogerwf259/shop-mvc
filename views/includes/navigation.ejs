@@ -1,0 +1,11 @@
+<header class="ui header">
+    <nav class="ui secondary pointing menu">
+        <a class="red item <%= path === '/' ? 'active' : '' %>" href="/">Shop</a>
+        <a class="green item <%= path === '/products' ? 'active' : '' %>" href="/products">Products</a>
+        <a class="blue item <%= path === '/cart' ? 'active' : '' %>" href="/cart">Cart</a>
+        <a class="yellow item <%= path === '/checkout' ? 'active' : '' %>" href="/checkout">Checkout</a>
+        <a class="purple item <%= path === '/orders' ? 'active' : '' %>" href="/orders">Orders</a>
+        <a class="orange item <%= path === '/admin/add-product' ? 'active' : '' %>" href="/admin/add-product">Add Product</a>
+        <a class="black item <%= path === '/admin/products' ? 'active' : '' %>" href="/admin/products">Admin Products</a>
+    </nav>
+</header>

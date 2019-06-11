@@ -1,0 +1,28 @@
+<%- include('../includes/head.ejs') %>
+<body>
+    <%- include('../includes/navigation.ejs') %>
+    <main class="container">
+        <div class="ui grid content centered" style="margin-top: 2rem">
+            <div class="ui violet card">
+                <div class="image">
+                    <img src="<%= product.image %>"/>
+                </div>
+                <article class="content">
+                    <header class="header">
+                        <h1><%= product.title %></h1>
+                    </header>
+                    <div class="meta">
+                            <span><%= product.price %></span>
+                    </div>
+                    <div class="description">
+                        <%= product.description %>                        
+                    </div>
+                </article>
+                <div class="extra content">
+                    <%- include('../includes/add-to-cart.ejs') %>
+                </div> 
+            </div>
+        </div>
+    </main>
+</body>
+</html

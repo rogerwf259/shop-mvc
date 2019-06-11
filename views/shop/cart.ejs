@@ -1,0 +1,35 @@
+<%- include('../includes/head.ejs') %>
+<body>
+    <%- include('../includes/navigation.ejs') %>
+    <main class="ui container">
+        <% if (products.length > 0) { %>
+            <div class="ui equal width grid">
+                <% products.forEach(p => { %>
+                    <div class="ui four wide column">
+                    <div class="ui cards">
+                        <div class="card">
+                          <div class="content">
+                            <div class="header"><%= p.productData.title %></div>
+                            <div class="description">
+                                <%= p.productData.description %>
+                                <div class="right floated"><%= p.quantity %></div>
+                            </div>
+                          </div>
+                          <form class="ui bottom attached button" action="/cart-delete-item" method="POST">
+                            <input type="hidden" value="<%= p.productData.id %>" name="productId">
+                            <button class="ui button" style="padding: 0" type="submit">
+                            <i class="add icon"></i>
+                            Remove from Cart
+                            </button>
+                         </form>
+                        </div>
+                    </div>
+                    </div>
+                <% }); %>
+        <% } else { %>
+            <h1>No products in cart</h1>
+        <% } %>
+        </div>
+    </main>
+</body>
+</html>
